@@ -1,28 +1,15 @@
+var cuerpo = document.querySelector("html");
 var pizarra = document.querySelector("canvas");
 var pincel = pizarra.getContext("2d");
+var boton = document.querySelector("#iniciar-juego");
+var agregar = document.querySelector("#agregador")
+
+
+
 var palabras = [
     "usted",
-    "hasta",
-    "antes",
-    "mierda",
-    "nuevo",
-    "conmigo",
-    "visto",
-    "familia",
-    "serio",
-    "cuenta",
-    "chico",
+   "chico",
     "hacia",
-    "dijiste",
-    "manos",
-    "manera",
-    "escucha",
-    "genial",
-    "comida",
-    "estabas",
-    "pasando",
-    "culpa",
-    "pensando",
     "entiendes",
     "muchachos",
     "gusto",
@@ -30,73 +17,12 @@ var palabras = [
     "deben",
     "recuerdas",
     "quieras",
-    "profesor",
-    "campo",
-    "error",
-    "novia",
-    "hazlo",
-    "traje",
-    "dijeron",
-    "mitad",
-    "supone",
-    "humano",
-    "negocios",
-    "linda",
-    "regalo",
-    "carne",
-    "detective",
-    "teniente",
-    "dulce",
-    "encontrado",
-    "pelear",
-    "asesinato",
-    "papel",
-    "temprano",
-    "cargo",
-    "baile",
-    "estaremos",
-    "bolsa",
-    "jugando",
-    "santa",
-    "hermanos",
-    "hayas",
-    "podamos",
-    "delante",
-    "embargo",
-    "blanca",
-    "color",
-    "demonio",
-    "hielo",
-    "tuviera",
-    "cansado",
-    "herido",
-    "larga",
-    "oeste",
-    "tranquila",
-    "dejen",
-    "oscuridad",
     "quedarse",
     "definitivamente",
     "nervioso",
-    "debido",
-    "ruido",
-    "hubieras",
-    "orgulloso",
-    "jerry",
     "sentado",
     "muestra",
     "primo",
-    "momentos",
-    "valiente",
-    "usando",
-    "inmediato",
-    "pudiste",
-    "quedo",
-    "disculpen",
-    "conocen",
-    "cuerpos",
-    "torre",
-    "historias",
     "tomas",
     "evidencia",
     "mires",
@@ -104,204 +30,160 @@ var palabras = [
     "responsabilidad",
     "andando",
     "trabajas",
-    "borracho",
-    "perdiste",
-    "escuchando",
-    "corto",
-    "oferta",
-    "granja",
-    "libres",
-    "troya",
-    "tarea",
-    "enojado",
-    "tonta",
-    "guste",
-    "duerme",
-    "quedado",
-    "shrek",
-    "milagro",
-    "alcance",
-    "durmiendo",
-    "iguales",
-    "naves",
-    "verlos",
-    "conducir",
-    "regla",
-    "familias",
-    "negativo",
-    "cooper",
-    "carol",
     "mentiroso",
     "conciencia",
     "posibilidades",
     "contado",
-    "thomas",
-    "combustible",
-    "traes",
-    "digan",
-    "algun",
-    "ocupada",
-    "angeles",
-    "adoro",
-    "cigarrillo",
-    "maneras",
-    "mover",
-    "chiste",
-    "buscan",
-    "mantiene",
-    "lenny",
-    "pobres",
-    "usado",
-    "maestra",
-    "aparentemente",
-    "nerviosa",
-    "gordon",
-    "saltar",
-    "mental",
-    "bolas",
-    "tiburones",
-    "abandonado",
-    "camarada",
-    "gatos",
-    "houston",
-    "ponerte",
-    "annie",
-    "tratas",
-    "afortunado",
-    "ladrones",
-    "ventaja",
-    "jesucristo",
-    "aquello",
-    "excusa",
-    "compromiso",
-    "asombroso",
-    "encantadora",
-    "desaparecer",
-    "adivinar",
     "armario",
     "rastro",
     "entrando",
     "casco",
     "consecuencias",
     "buscado",
-    "embajador",
-    "ultimo",
-    "reyes",
-    "querrá",
-    "esperado",
-    "llegaremos",
-    "edward",
-    "recuerden",
-    "gritando",
-    "sentimos",
-    "buscarlo",
-    "celoso",
-    "aaron",
-    "wyatt",
-    "benton",
-    "delicioso",
-    "fascinante",
-    "llamarlo",
-    "casualidad",
-    "explica",
-    "aterrizar",
-    "miserable",
-    "super",
-    "disparos",
-    "conseguimos",
-    "terror",
-    "escondido",
-    "actriz",
-    "hierro",
-    "obispo",
-    "costado",
-    "ataques",
-    "consciente",
-    "callate",
-    "profesionales",
-    "enciende",
-    "morgan",
-    "recibimos",
-    "franceses",
-    "razonable",
-    "imaginas",
-    "mentes",
-    "tarjetas",
-    "desayunar",
-    "mueres",
-    "jugamos",
-    "cretino",
-    "cohete",
-    "jenna",
-    "sammy",
-    "cantando",
-    "ofrece",
-    "propuesta",
-    "temer",
-    "expedientes",
-    "escuchan",
-    "sorprendente",
-    "colegas",
-    "llores",
-    "debamos",
-    "objetos",
-    "tomaremos",
-    "thunderbird",
-    "revisa",
-    "angela",
-    "damien",
-    "observando",
-    "coordenadas",
-    "descuida",
-    "guerras",
-    "costumbre",
-    "norman",
-    "cultura",
-    "encontrarme",
-    "capital",
-    "conversar",
-    "hemorragia",
-    "dinos",
-    "ocupados",
-    "fuentes",
-    "rumor",
-    "darse",
-    "woody",
-    "entenderlo",
-    "sitios",
-    "torneo"]
-
-pizarra.addEventListener("input", function(){
-    mostrarErrores(this.value);
-    
-    
-    
-
+    "torneo"];
+agregar.addEventListener('click', function(event){
+    event.preventDefault();
+    var agregarPalabra = document.querySelector("#nueva-palabra");
+    palabras.push(agregarPalabra.value);
+    console.log(palabras);
 })
 
-var nuevalista = [];
-for (let i = 0; i < palabras.length; i++) {
-     const element = palabras[i];
-    if (!caracteres.test(element) && i%13 == 0) {
-        if (element.length > 4) {
-                nuevalista.push(palabras[i]);
+boton.addEventListener('click', function(){
+    pincel.clearRect (0,0,1200,800);
+    iniciarJuego();
+    pizarra.focus();
+    var indice = Math.round(Math.random()*(palabras.length));
+    var palabra = palabras[indice].toUpperCase();
+    crearEspacioLetras(palabra);
+    console.log(palabra);
+    var letras = [];
+    var espaciado = 150;
+    var errores = 0; 
+    var aciertos = 0;
+    cuerpo.addEventListener("keypress", function(event){
+        pincel.clearRect (350,0,1200,300);
+        var input = event.key;
+        if (mostrarErrores(input,letras)) {
+            espaciado += 25;
+            var seAcerto = dibujarLetras(input.toUpperCase(),palabra);
+            if ( seAcerto == 0){
+                letras.push(input);
+                pincel.beginPath();
+                pincel.font = "30px arial";
+                pincel.fillStyle = "red";
+                pincel.fillText(input, 300 + espaciado, 400);
+                errores += 1;
+                fallas(errores);
+                if (errores == 9) {
+                    pincel.beginPath();
+                    pincel.font = "40px arial";
+                    pincel.fillStyle = "red";
+                    pincel.fillText("Perdió, la palabra era:", 470, 150);
+                    pincel.font = "45px arial bold";
+                    pincel.fillText(palabra, 470, 200);
+                    pincel.font = "20px arial bold";
+                    pincel.fillText("Presione una tecla para reiniciar.", 470, 230);
+                    cuerpo.addEventListener("keypress",function(event){
+                        location.reload();
+                    });
+                }               
+            } else  {
+                letras.push(input);
+                pincel.beginPath();
+                pincel.font = "30px arial";
+                pincel.fillStyle = "green";
+                pincel.fillText(input, 300 + espaciado, 350);
+                aciertos += seAcerto;
+                if (aciertos == palabra.length){
+                    pincel.beginPath();
+                    pincel.font = "40px arial bold";
+                    pincel.fillStyle = "green";
+                    pincel.fillText("Felicidades!! ah adivinado la palabra.", 470, 150);
+                    pincel.font = "20px arial bold";
+                    pincel.fillText("Presione una tecla para reiniciar.", 470, 200);
+                    cuerpo.addEventListener("keypress",function(event){
+                        location.reload();
+                    });
+                }
+            }
+        }        
+    })
+})
+
+function crearEspacioLetras(palabra){
+    var inicio = 270;
+    var espacio = (900/(palabra.length));
+    pincel.lineWidth = "3";
+    pincel.strokeStyle = "black";
+        if (palabra.length <= 5) {
+            for (let i = 0; i < palabra.length; i++) {
+                pincel.beginPath();
+                pincel.moveTo(inicio, 550);
+                pincel.lineTo((inicio + (espacio)/1.3), 550);
+                pincel.stroke();
+                inicio += ((espacio/1.3) + 20);
+            }
+        } else if (palabra.length > 5 && palabra.length <= 8){
+            for (let i = 0; i < palabra.length; i++) {
+                pincel.beginPath();
+                pincel.moveTo(inicio, 550);
+                pincel.lineTo((inicio + (espacio)/1.5), 550);
+                pincel.stroke();
+                inicio += ((espacio/1.5) + 20);
+            }
+        } else if (palabra.length > 8){
+            for (let i = 0; i < palabra.length; i++) {
+                pincel.beginPath();
+                pincel.moveTo(inicio, 550);
+                pincel.lineTo((inicio + (espacio)/2), 550);
+                pincel.stroke();
+                inicio += ((espacio/2) + 20);
+            }
         }
-        
-    }
 }
-    
-function mostrarErrores(evento){
-    pincel.beginPath()
-    pincel.font = "70px arial bold"
-    pincel.fillStyle = "red"
-    var caracteres = /[¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρςστυφχψωϑϒϖ•…′″‾⁄℘ℑℜ™ℵ←↑→↓↔↵⇐⇑⇒⇓⇔∀∂∃∅∇∈∉∋∏∑−∗√∝∞∠∧∨∩∪∫∴∼≅≈≠≡≤≥⊂⊃⊄⊆⊇⊕⊗⊥⋅⌈⌉⌊⌋〈〉"&<>ŒœŠšŸˆ˜–—‘’‚“”„†‡‰‹›€]/g;
-    var mayusculas = /[A-Z]/g;
-    var numeros = /[0-9]/g;
-    if (caracteres.test(evento)) {
-        pincel.fillText("No se admiten caracteres especiales", 470, 150);
-    } else if (mayusculas.test(evento)){
-        pincel.fillText("No se admiten mayusculas", 470, 150);
-    } else if (numeros.test(evento)){
-        pincel.fillText("No se admiten números", 470, 150);
+function dibujarLetras(letra, palabra){
+    var inicio = 270;
+    var espacio = (900/(palabra.length));
+    var aciertos = 0;
+    pincel.beginPath();
+    pincel.fillStyle = "black";
+    if (palabra.length <= 5) {
+        for (var i = 0; i < palabra.length; i++) {
+            if (letra == palabra[i]) {
+                pincel.beginPath();
+                pincel.font = "90px arial bold";
+                pincel.fillText(palabra[i], ((inicio - 15) + (espacio/1.3)/2), 540);
+                inicio += ((espacio/1.3) + 20);
+                aciertos += 1;
+            } else {
+                inicio += ((espacio/1.3) + 20);
+            }
+        }
+    } else if ((palabra.length > 5) && (palabra.length <= 8)){
+        for (var i = 0; i < palabra.length; i++) {
+            if (letra == palabra[i]) {
+                pincel.beginPath();
+                pincel.font = "50px arial bold";
+                pincel.fillText(palabra[i], ((inicio - 10) + (espacio/1.5)/2), 540);
+                inicio += ((espacio/1.5) + 20);
+                aciertos += 1;
+            }
+            else {
+                inicio += ((espacio/1.5) + 20);
+            }
+        } 
+    } else if (palabra.length > 8){
+        for (var i = 0; i < palabra.length; i++) {
+            if (letra == palabra[i]) {
+                pincel.beginPath();
+                pincel.font = "30px arial bold";
+                pincel.fillText(palabra[i], ((inicio - 6) + (espacio/2)/2), 540);
+                inicio += ((espacio/2) + 20);
+                aciertos += 1;
+            } else {
+                inicio += ((espacio/2) + 20);
+            }
+        }
     }
+    return aciertos;
 }
