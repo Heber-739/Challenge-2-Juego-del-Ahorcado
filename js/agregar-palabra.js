@@ -1,4 +1,3 @@
-
 function mostrarErrores(evento, lista){
     pincel.beginPath()
     pincel.font = "40px arial bold"

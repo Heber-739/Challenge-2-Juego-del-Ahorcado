@@ -202,7 +202,6 @@ function dibujarLetras(letra, palabra){
 }
 
 
- 
 function resizeBoard() {
     var clientWidth = document.documentElement.scrollWidth*0.8;
     var ratio = pizarra.height / pizarra.width;
