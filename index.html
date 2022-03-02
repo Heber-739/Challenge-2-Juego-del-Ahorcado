@@ -9,24 +9,20 @@
   </head>
   <body>
     <header>
-      <h2>Challenge 2 Alura Latam: Juego del ahorcado.</h2>
+      <h2>Challenge 2 Alura Latam: Juego del ahorcado</h2>
       <figure>
-        <img class="picture" src="./img/alura.jpg" alt="Alura Latam" />
-        <p>+</p>
         <img
           class="picture"
-          src="./img/oracle.png"
+          src="./img/alura-oracle.png"
           alt="Oracle - Next Education"
         />
       </figure>
     </header>
+
     <main>
-      <section>
-        <button class="button">
-          <a href="#ahorcado" id="iniciar-juego">INICIAR JUEGO</a>
-        </button>
-        <form>
-          <labell>
+      <section id="section1">
+        <form id="form">
+          <label>
             <input
               type="text"
               name="ingresar-palabra"
@@ -34,15 +30,37 @@
               id="nueva-palabra"
             />
             <button id="agregador" class="button">AGREGAR PALABRA</button>
-          </labell>
+            <button class="button">
+              <a href="#ahorcado" id="iniciar-juego">INICIAR JUEGO</a>
+            </button>
+          </label>
         </form>
       </section>
-      <section>
-        <canvas height="800px" width="1200px" id="ahorcado"></canvas>
+
+      <section id="section2">
+        <canvas id="ahorcado" width="1000px" height="380px"></canvas>
       </section>
+      <div id="refresh" class="button">
+        <p>Refresh</p>
+        <img
+          src="./img/refresh.png"
+          alt="refresh"
+          onclick="location.reload()"
+        />
+      </div>
     </main>
     <footer>
-      <p>© 2022 - Trabajo realizado por <strong>Heber Duarte</strong>.</p>
+      <p>
+        Autoría <strong><em>Heber Duarte</em></strong>
+      </p>
+      <p>Icon by <a href="https://iconos8.es/" target="_blank">Icons8</a></p>
+      <p id="git">
+        <img src="./img/github.png" alt="logo github" /><a
+          href="https://github.com/Heber-739"
+          target="_blank"
+          >Github</a
+        >
+      </p>
     </footer>
     <script src="./js/script.js"></script>
     <script src="./js/ahorcado.js"></script>

@@ -1,66 +1,73 @@
-var pizarra = document.querySelector("canvas");
-var pincel = pizarra.getContext("2d");
 
 
 function iniciarJuego(){
     pincel.beginPath();
     pincel.fillStyle = "black";
-    pincel.moveTo(25,550);
-    pincel.lineTo(75,500);
-    pincel.lineTo(125,550);
-    pincel.lineTo(25,550);
+    pincel.moveTo(15,350);
+    pincel.lineTo(45,325);
+    pincel.lineTo(75,350);
+    pincel.lineTo(15,350);
     pincel.fill();
+    pincel.closePath();
 }
 
 function palo1(){
-    pincel.moveTo(75,502);
-    pincel.lineTo(75,100);
+    pincel.moveTo(45,327);
+    pincel.lineTo(45,75);
     pincel.stroke();
+    pincel.closePath();
 }
 function palo2(){
-    pincel.moveTo(75,102);
-    pincel.lineTo(275,100);
+    pincel.moveTo(44,75);
+    pincel.lineTo(175,75);
     pincel.stroke();
+    pincel.closePath();
 }
 function palo3(){
-    pincel.moveTo(273,100);
-    pincel.lineTo(273,150);
+    pincel.moveTo(175,75);
+    pincel.lineTo(175,130);
     pincel.stroke();
+    pincel.closePath();
 }
 /* Dibujo de la cabeza */
 function cabeza(){
-    pincel.moveTo(273,150);
-    pincel.arc(273, 179, 30, 300, 2 * 3.14, true);
+    pincel.moveTo(175,120);
+    pincel.arc(175, 155, 25, 300, 2 * 3.14, true);
     pincel.stroke();
+    pincel.closePath();
 }
 
 /* Dibujo del cuerpo */
 function palito(){
-    pincel.moveTo(273,210);
-    pincel.lineTo(273,350);
+    pincel.moveTo(175,180);
+    pincel.lineTo(175,270);
     pincel.stroke();
+    pincel.closePath();
 }
 /* Dibujo de las piernas */
 function pierna1(){
-    pincel.moveTo(273,350);
-    pincel.lineTo(223,410);
+    pincel.moveTo(175,270);
+    pincel.lineTo(145,320);
     pincel.stroke();
+    pincel.closePath();
 }
 function pierna2(){
-    pincel.moveTo(273,350);
-    pincel.lineTo(323,410);
+    pincel.moveTo(175,270);
+    pincel.lineTo(205,320);
     pincel.stroke();
+    pincel.closePath();
 }
 /* Dibujo de los brazos */
 function brazo1(){
-    pincel.moveTo(273,250);
-    pincel.lineTo(213,220);
+    pincel.moveTo(175,200);
+    pincel.lineTo(220,220);
     pincel.stroke();
 }
 function brazo2(){
-    pincel.moveTo(273,250);
-    pincel.lineTo(333,220);
+    pincel.moveTo(175,200);
+    pincel.lineTo(135,220);
     pincel.stroke();
+    pincel.closePath();
 }
 
 function fallas(valor){
@@ -72,30 +79,39 @@ function fallas(valor){
             break;
         case 1:
             palo1();
+            pincel.closePath()
             break;
         case 2:
             palo2();
+            pincel.closePath()
             break;
         case 3:
             palo3();
+            pincel.closePath()
             break;
         case 4:
             cabeza();
+            pincel.closePath()
             break;
         case 5:
             palito();
+            pincel.closePath()
             break;
         case 6:
             pierna1();
+            pincel.closePath()
             break;
         case 7:
             pierna2();
+            pincel.closePath()
             break;
         case 8:
             brazo1();
+            pincel.closePath()
             break;
         case 9:
             brazo2();
+            pincel.closePath()
             break;
         default:
             break;

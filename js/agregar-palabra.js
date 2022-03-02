@@ -7,16 +7,20 @@ function mostrarErrores(evento, lista){
     var mayusculas = /[A-Z]/g;
     var numeros = /[0-9]/g;
     if (caracteres.test(evento)) {
-        pincel.fillText("No se admiten caracteres especiales", 470, 150);
+        pincel.fillText("No se admiten caracteres especiales", 270, 150);
+        pincel.closePath();
         return false;
     } else if (mayusculas.test(evento)){
-        pincel.fillText("No se admiten mayusculas", 470, 150);
+        pincel.fillText("No se admiten mayusculas", 270, 150);
+        pincel.closePath();
         return false;
     } else if (numeros.test(evento)){
-        pincel.fillText("No se admiten números", 470, 150);
+        pincel.fillText("No se admiten números", 270, 150);
+        pincel.closePath();
         return false;
     } else if (letraRepetidas(evento, lista) > 0){
-        pincel.fillText("La letra ya fue ingresada", 470, 150);
+        pincel.fillText("La letra ya fue ingresada", 270, 150);
+        pincel.closePath();
         return false;
     } else {
         return true;
