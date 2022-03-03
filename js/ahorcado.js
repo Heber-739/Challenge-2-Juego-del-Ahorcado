@@ -211,6 +211,5 @@ function resizeBoard() {
     var newHeight = String(clientHeight + 'px');  
     pizarra.style.width = newWidth;
     pizarra.style.height = newHeight;
-    console.log(newWidth, newHeight);
 }
     
